@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>결과</title>
+</head>
+<body>
+    <h1>결과</h1>
+    <p id="result"></p>
+
+    <script>
+        // 저장된 점수 불러오기
+        let score = parseInt(sessionStorage.getItem('score') || '0', 10);
+        document.getElementById('result').textContent = `최종 점수: ${score}`;
+
+        // 최종 점수에 따른 결과 출력
+        let resultText;
+        if (score === 5) resultText = "결과 1";
+        else if (score >= 3) resultText = "결과 2";
+        else if (score >= 1) resultText = "결과 3";
+        else resultText = "결과 4";
+
+        document.getElementById('result').textContent += `\n${resultText}`;
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>여행 성향테스트</title>
+    <style>
+        body {
+            background-color: rgb(168, 224, 229);
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #container {
+            background-color: rgba(0, 0, 0 , 0);
+            width: 90vw;
+            margin: 4vw auto;
+            padding-top: 2vw;
+            text-align: center;
+        }
+        #question2_pic {
+            width: 35vw;
+            height: auto;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 2vw;
+            margin-top: 2vw;
+        }
+        .question2_btn {
+            background: rgb(0,172,238);
+            background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
+            width: 30vw;
+            height: 5vw;
+            line-height: 1vw;
+            padding: 0;
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.5vw;
+        }
+        .question2_btn:hover {
+            border: 0.3vw solid rgb(0,172,238);
+            background: transparent;
+            color: rgba(2,126,251,1);
+            box-shadow: none;
+        }
+        
+    </style>
+</head>
+<body>  
+    <div id="container">
+        <div>
+            <h1 id="question2">Q2. 여행지 도착 !! 신이 난 두 사람 <br>
+                배가고파서 음식점에 들리기로 했다. 이 떄 당신의 행동은?
+            </h1>
+            <img src="./menu4_image/question3_disney_world.jpg" alt="Busan" id="question2_pic">
+        </div>
+        <div class="button_container">
+            <button onclick="selectChoice(true)" class="question2_btn">
+                맛집부터 가자!!! 위치,리뷰,평점 다 볼거야
+            </button>
+            <button onclick="selectChoice(false)" class="question2_btn">
+                배고픈데 그냥 아무데나 들어갔으면 좋겠다..
+            </button>
+        </div>
+    </div>
+    
+    <script>
+        function selectChoice(choice) {
+            let score = parseInt(sessionStorage.getItem('score') || '0', 10);
+
+    // choice 값에 따라 score 값을 증가 또는 감소
+            if (choice === true) {
+                score += 1;
+            } 
+        
+            else if (choice === false) {
+                score -= 1;
+            }
+
+            // sessionStorage에 score 값을 저장
+            sessionStorage.setItem('score', score);
+
+            // 다음 페이지로 이동
+            window.location.href = "menu4_question3.html";
+    }
+    </script>
+</body>
+</html>

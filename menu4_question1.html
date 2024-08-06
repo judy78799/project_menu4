@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>여행 성향테스트</title>
+<link rel="stylesheet" href="header.css">
+<link rel="stylesheet" href="common_style.css">
+<style>
+body{
+background-color: rgb(168, 224, 229);
+}
+#container {
+    font-family: Arial, sans-serif;
+    /* background-color: rgba(0, 0, 0 , 0);*/
+    width: 90vw;
+    margin: 0vw auto;
+    text-align: center;
+}
+#question1_pic {
+    width: 35vw;
+    height: auto;
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 2vw;
+    margin-top: 2vw;
+}
+.question1_btn {
+    background: rgb(0,172,238);
+    background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
+    width: 30vw;
+    height: 5vw;
+    line-height: 1vw;
+    padding: 0;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.5vw;
+}
+.question1_btn:hover {
+    border: 0.3vw solid rgb(0,172,238);
+    background: transparent;
+    color: rgba(2,126,251,1);
+    box-shadow: none;
+}
+    </style>
+</head>
+<body>  
+    <div id="container">
+        <header id="header">
+        
+            <nav class="nav-bar">
+                    <a href="./index.html" id="logo">TourUs</a>
+                  
+                      <ul class="nav-items">
+                          <li class="nav-item"><a href="./menu3.html" class="nav-item-font nav_font1">요즘 SNS 맛보기</a></li>
+                          <li class="nav-item"><a href="./menu3.html" class="nav-item-font nav_font2">지역별 추천</a></li>
+                          <li class="nav-item"><a href="./menu3.html" class="nav-item-font nav_font3">랜덤 주사위</a></li>
+                          <li class="nav-item"><a href="./menu4_question1.html" class="nav-item-font nav_font4">나의 여행 Mbti는?</a></li>
+                      </ul>
+                      <div class="menu_side_list">
+                        <a href="" class="login">로그인</a>
+                      </div>
+            </nav>
+            
+            <div class="scroll-indicator-container">
+                <div class="scroll-indicator-bar"></div>
+            </div>
+        </header>
+
+        <div>
+            <h1 id="question1">Q1. 여자친구(남자친구)와 첫 1박2일 여행을 가기로 했다 <br>
+            여행 전 날, 어떤 준비를 하는가?
+            </h1>
+            <img src="./menu4_image/question1_ktx.jpg" alt="Busan" id="question1_pic">
+        </div>
+        <div class="button-container">
+            <button onclick="selectChoice(true)" class="question1_btn">
+                첫 여행 너무 설렌다 !! 내일 가져갈 것 챙겨야지 !!
+            </button>
+            <button onclick="selectChoice(false)" class="question1_btn">
+                내일 아침일찍 일어나서 간단하게 짐 싸면 되겠지
+            </button>
+        </div>
+    </div>
+    
+    <script>
+        function selectChoice(choice) {
+            let score = parseInt(sessionStorage.getItem('score') || '0', 10);
+
+            // choice 값에 따라 score 값을 증가 또는 감소
+            if (choice === true) {
+                score += 1;
+            } else if (choice === false) {
+                score -= 1;
+            }
+
+            // sessionStorage에 score 값을 저장
+            sessionStorage.setItem('score', score);
+
+            // 다음 페이지로 이동
+            window.location.href = "menu4_question2.html";
+        }
+    </script>
+</body>
+</html>
